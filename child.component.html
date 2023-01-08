@@ -1,0 +1,51 @@
+
+<div class="container-fluid bg-light">
+    <div class="container bg-light">
+        <div class="row mt-5" style="height: 400px;">
+            <div class="col"></div>
+            <div class="col-md-6 bg-white shadow">
+                <div class="card bg-primary mt-3">
+<h4 class="text-white text-center ps-2 pt-2 pb-2">To Do Task</h4>
+                </div>
+                <div class="shadow">
+                    <div class="input-group p-3">
+                        <input type="text" class="form-control" placeholder="Add Task" name="task" [(ngModel)]="addtaskdata">
+                        <button class="btn btn-outline-success" type="button" (click)="addtasks()">Add</button>
+                      </div>
+                </div>
+                <h3 class="text-primary mt-3">Task:</h3>
+                <div style="overflow-y: auto; height: 350px;">
+                  <div class="m-3" *ngFor="let data of taskarr">
+                    <div class="p-2 shadow border">
+                        <div class="input-group row ps-2">
+                            <div class="card col-md-6 border-0">{{data.task}}</div>
+                            <button class="btn btn-outline-primary col me-1" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="calledit(data)">Edit</button>
+                            <div class="btn btn-outline-danger col" (click)="deletetasks(data)">Delete</div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+            <input type="text" class="form-control" placeholder="Add Task" name="task" [(ngModel)]="edittaskdata">
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-dark" (click)="edittasks()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</div>
